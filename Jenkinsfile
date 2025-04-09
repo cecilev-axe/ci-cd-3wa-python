@@ -5,21 +5,12 @@ pipeline {
         stage('build') {
             agent {
                 docker {
-                    image 'docker'
+                    image 'python'
                     reuseNode true
                 }
             }
             steps {
-                sh '''
-                 // Créer un environnement virtuel Python
-                    python3 -m venv venv
-                    
-                    // Activer l'environnement virtuel
-                    . venv/bin/activate
-                    
-                    // Installer les dépendances
-                    pip install -r requirements.txt
-                    
+                sh '''                 
                     pip3 install flask
                     python3 index.py
                 '''

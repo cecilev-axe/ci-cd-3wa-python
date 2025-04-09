@@ -11,7 +11,7 @@ pipeline {
             }
             steps {
                 sh '''                 
-                    pip install flask
+                    pip install --user flask
                     python3 index.py
                 '''
             }
